@@ -5,6 +5,6 @@ const router=express.Router();
 router.route("/register").post(register);
 router.route("/login").post(login);
 router.route("/update/:id").post(isAuthenticated,updateUser);
-router.route("/user/:id").get(isAuthenticated,getUser);
+router.route("/user").get(isAuthenticated,getUser);
 router.route("/user/updatePassword").post(isAuthenticated,updatepassword);
 module.exports=router;

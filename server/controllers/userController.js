@@ -14,7 +14,7 @@ exports.register=catchAsyncErrors(async(req,res,next)=>{
     
     const{name,email,password}=req.body;
 if(req.files)
-{
+{console.log(true);
     const file=req.files.photo;
     cloudinary.uploader.upload(file.tempFilePath,async(err,result)=>{
       const user=await User.create({
@@ -76,7 +76,7 @@ exports.updateUser=catchAsyncErrors(async(req,res,next)=>{
 })
 
 exports.getUser=catchAsyncErrors(async(req,res,next)=>{
-    const user=await User.findById(req.params.id);
+    const user=await User.findById(req.user.id);
     if(!user)
     {
         return next(new ErrorHandler("No such User Found",404))
