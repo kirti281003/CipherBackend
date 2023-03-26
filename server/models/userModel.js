@@ -16,9 +16,44 @@ const userSchema=new mongoose.Schema({
     },
     img:{
         type:String,
+    },
+    about:{
+        type:String,
+    },
+   
+        linkedin:{
+            type:String
+        },
+        github:{
+            type:String
+        },
+        facebook:{
+            type:String
+        },
+        instagram:{
+            type:String
+        },
+        twitter:{
+            type:String
+        },
+        website:{
+            type:String
+        }
+    ,
+    education:{
+        type:String
+    },
+    role:{
+        type:String
+    },
+    interests:{
+        type:[String]
     }
 })
 userSchema.pre("save",async function(next){
+    if(!this.isModified("password"))
+ {next();
+ }
     this.password=await bcrypt.hash(this.password,10);
 })
 userSchema.methods.getJWTToken=function(){

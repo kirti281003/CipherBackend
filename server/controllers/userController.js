@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
 const User=require("../models/userModel");
+const bcrypt=require("bcrypt");
 const cloudinary=require("cloudinary").v2;
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const sendToken = require("../utils/jwtToken");
@@ -10,30 +11,32 @@ cloudinary.config({
     api_secret:"SzqyhWymF0CoH2bbDut25UzhTPQ"
 })
 exports.register=catchAsyncErrors(async(req,res,next)=>{
-    var user="";
+    
     const{name,email,password}=req.body;
-    if(req.files)
-    {
+if(req.files)
+{
     const file=req.files.photo;
     cloudinary.uploader.upload(file.tempFilePath,async(err,result)=>{
-        user=await User.create({
+      const user=await User.create({
             name:name,
             email:email,
             password:password,
             img:result.url
         });
+        sendToken(user,201,res);
     })
-
 }
+
 else{
-    user=await User.create({
+   const user=await User.create({
         name:name,
         email:email,
         password:password,
     })
+    sendToken(user,201,res);
 }
 
-sendToken(user,201,res);
+
 
 })
 
@@ -46,11 +49,11 @@ exports.login=catchAsyncErrors(async(req,res,next)=>{
     const user=await User.findOne({email}).select("+password");
     if(!user)
     {
-        return next(new ErrorHandler("User not found",401))
+        return next(new ErrorHandler("User not found",404))
     }
-    const isMatch=user.comparePassword(password);
+    const isMatch=await user.comparePassword(password);
     if(!isMatch)
-    {return next(new ErrorHandler("User not found",401))
+    {return next(new ErrorHandler("User not found",404))
 
     }
    sendToken(user,200,res);
@@ -70,4 +73,42 @@ exports.updateUser=catchAsyncErrors(async(req,res,next)=>{
     else{
         return next(new ErrorHandler("Cannot update",403))
     }
+})
+
+exports.getUser=catchAsyncErrors(async(req,res,next)=>{
+    const user=await User.findById(req.params.id);
+    if(!user)
+    {
+        return next(new ErrorHandler("No such User Found",404))
+    }
+    res.status(200).json({
+        success:true,
+        user
+    })
+})
+
+exports.updatepassword=catchAsyncErrors(async(req,res,next)=>{
+    const{currentPassword,newPassword,confirmPassword}=req.body;
+    if(!currentPassword || !newPassword || !confirmPassword)
+    {
+        return next(new ErrorHandler("Enter all values",400));
+    }
+    const user=await User.findById(req.user.id);
+    if(!user)
+    {
+        return next(new ErrorHandler("No user Found",404));
+    }
+    const isMatch=await user.comparePassword(currentPassword);
+    console.log(isMatch);
+    if(!isMatch)
+    {
+        return next(new ErrorHandler("Wrong current password",404));
+    }
+    if(newPassword!=confirmPassword)
+    {
+        return next(new ErrorHandler("Password's dont match",404));
+    }
+    user.password=newPassword;
+    await user.save();
+    sendToken(user,200,res);
 })
