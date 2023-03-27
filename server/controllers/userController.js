@@ -77,10 +77,11 @@ exports.login=catchAsyncErrors(async(req,res,next)=>{
 
 // })
 exports.updateUser=catchAsyncErrors(async(req,res,next)=>{
-
+console.log(req.body);
         const updatedUser=await User.findByIdAndUpdate(req.user.id,{
             $set:req.body
         },{new:true})
+        console.log(updatedUser);
         res.status(200).json({
             success:true,
             updatedUser

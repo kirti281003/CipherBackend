@@ -4,7 +4,7 @@ const { isAuthenticated } = require("../middleware/auth");
 const router=express.Router();
 router.route("/register").post(register);
 router.route("/login").post(login);
-router.route("/update/:id").put(isAuthenticated,updateUser);
+router.route("/update").put(isAuthenticated,updateUser);
 router.route("/user").get(isAuthenticated,getUser);
 router.route("/user/updatePassword").post(isAuthenticated,updatepassword);
 module.exports=router;
