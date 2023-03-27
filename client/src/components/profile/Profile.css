@@ -1,0 +1,125 @@
+.userhead h3{
+margin-top:0rem;
+}
+.userhead h2{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.userhead{
+    width:100vw;
+}
+.aboutsection{
+    width:100vw;
+    margin-top:1rem;
+}
+.btn{
+ position: absolute;
+ right:2rem;
+    background-color: #f3912e;
+    color:white;
+    border:none;
+    border-radius:0.2rem;
+    width:6rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+.aboutsection h2{
+    display: inline-block;
+    position: relative;
+    left:3rem;
+}
+.about{
+    background-color: white;
+    color:black;
+    width:90vw;
+    margin-top:rem;
+    margin-left: 2vw;
+    margin-right: auto;
+    height:4rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+.websection{
+    margin-top:1rem;
+    width:95vw; 
+    display: flex;
+    flex-wrap: wrap;
+
+   
+}
+.web{
+    margin-top: 1rem;
+    width:100vw; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.web h1{
+margin-bottom: 0rem;
+font-size: 1.5rem;
+color:black;
+display: inline-block;
+position: relative;
+left:3rem;
+}
+.info{
+    margin-top: 1rem;
+    width:100vw; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.info h1{
+        margin-bottom: 0rem;
+        font-size: 1.5rem;
+        color:black;
+        display: inline-block;
+        position: relative;
+        left:3rem;
+        
+}
+.infosection{
+    margin-top: 1rem;
+    width:95vw; 
+    display: flex;
+    flex-wrap: wrap;
+}
+.interests{
+    margin-top: 1rem;
+    width:100vw; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.interests h1{
+    margin-bottom: 0rem;
+    font-size: 1.5rem;
+    color:black;
+    display: inline-block;
+    position: relative;
+    left:3rem;
+}
+.interestsection{
+    margin-top: 1rem;
+    width:95vw; 
+    display: flex;
+    flex-wrap: wrap;
+}
+.interest{
+    display: inline-block;
+    background-color: #ffd6ad;
+    color:#f3912e;
+    margin:0 0 2rem 3rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.logo{
+    display: inline-block;
+    height:3.5rem;
+    margin-left: 3rem;
+}
+.userhead div{
+    display: inline-block;
+    margin-left: 2rem;
+
+}
