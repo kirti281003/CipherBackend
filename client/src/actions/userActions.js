@@ -61,14 +61,14 @@ export const login = (email, password) => async (dispatch) => {
     }
   }
 
-  export const updateUser=(name,email)=>async(dispatch)=>{
+  export const updateUser=(name,email,photo)=>async(dispatch)=>{
     try{
         dispatch({
             type:UPDATE_USER_REQUEST
         })
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: { "Content-Type": "multipart/form-data" } };
         const {data}=await axios.put(`/api/v1/update`,
-        {name,email},
+        {name,email,photo},
         config);
         dispatch({
             type:UPDATE_USER_SUCCESS,

@@ -1,0 +1,7 @@
+.followerpage{
+    background-color: #262c36;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+   padding: 2rem;
+}

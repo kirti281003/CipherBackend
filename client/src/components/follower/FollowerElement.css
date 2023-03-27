@@ -1,0 +1,21 @@
+.follower{
+background-color: #15181E;
+align-items: center;
+width:20vw;
+height:35vh;
+color:white;
+padding: 1rem;
+border-radius: 5px;
+margin-top: 3rem;
+}
+.logo{
+height:5rem;
+margin-bottom: 2rem;
+}
+.follow{
+    background-color: #f3912e;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}

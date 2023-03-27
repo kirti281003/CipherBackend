@@ -7,6 +7,7 @@ import "./Modal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser, updateUserPassword } from "../../actions/userActions";
 import edit from "../../images/edit.png";
+import { Link } from "react-router-dom";
 const customStyles = {
     content: {
       top: '50%',
@@ -24,6 +25,7 @@ function User({name,email})
   
     const[Name,setName]=useState(user.name);
     const[Email,setEmail]=useState(user.email);
+    const[Image,setImage]=useState(user.img);
     const[Current,setCurrent]=useState("");
     const[New,setNew]=useState("");
     const[Confirm,setConfirm]=useState("");
@@ -32,7 +34,7 @@ function User({name,email})
     
     function update()
     {
-        dispatch(updateUser(Name,Email));
+        dispatch(updateUser(Name,Email,Image));
 
     }
     function updatePassword()
@@ -41,6 +43,7 @@ function User({name,email})
     }
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalProfileIsOpen, setProfileIsOpen] = React.useState(false);
   
     function openModal() {
       setIsOpen(true);
@@ -54,15 +57,30 @@ function User({name,email})
     function closeModal() {
       setIsOpen(false);
     }
+    function openProfileModal() {
+        setProfileIsOpen(true);
+      }
+    
+      function afterProfileOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#000';
+      }
+    
+      function closeProfileModal() {
+        setProfileIsOpen(false);
+      }
     return(
         <>
         <div className="userhead">
-        <button onClick={openModal} className="editbtn"><img src={edit} style={{"height":20}}/></button>
+        <img src={logo} className="logo" ></img>
+     
+            
+        <button onClick={openProfileModal} className="editbtn"><img src={edit} style={{"height":20 }}/></button>
         {/* Modal */}
         <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        isOpen={modalProfileIsOpen}
+        onAfterOpen={afterProfileOpenModal}
+        onRequestClose={closeProfileModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
@@ -79,9 +97,13 @@ function User({name,email})
        <br></br>
           <input type="text" className="modalinput" onChange={(e)=>setEmail(e.target.value)}/>
           </div>
-       
+          <div className="modalfield">   
+       <label className="modallabel">New Profile Picture</label>
+       <br></br>
+         <input type="file" className="modalinput"   onChange={(e)=>setImage(e.target.files[0])}/> 
+         </div>
           <button type="submit" className="orangebtn" onClick={update}>Save</button>
-          <button onClick={closeModal} className="whitebtn">Close</button>
+          <button onClick={closeProfileModal} className="whitebtn">Close</button>
           
         </form>
       </Modal>
@@ -120,15 +142,18 @@ function User({name,email})
           
         </form>
       </Modal>
-        <img src={logo} className="logo" ></img>
-        <div>
+      <div>
             <span>Hello</span>
             <h2>{name}</h2>
             <span>{email}</span>
+            <span><Link to="/followers" className="followlink">10 Followers</Link></span>
             
             </div>
-        </div>
+      </div>
+  
+       
         </>
+        
     )
 }
 export default User;

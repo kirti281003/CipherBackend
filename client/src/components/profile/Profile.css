@@ -1,5 +1,5 @@
-.userhead h3{
-margin-top:0rem;
+.userhead span{
+margin-top:-2rem;
 }
 .userhead h2{
     margin-top: 0rem;
@@ -11,6 +11,10 @@ margin-top:0rem;
 .aboutsection{
     width:100vw;
     margin-top:1rem;
+}
+.editbtn{
+    background-color: transparent;
+    border:none
 }
 .btn{
  position: absolute;
@@ -122,4 +126,9 @@ left:3rem;
     display: inline-block;
     margin-left: 2rem;
 
+}
+.followlink{
+    margin-left: 2rem;
+    text-decoration: none;
+    color:#f3912e
 }

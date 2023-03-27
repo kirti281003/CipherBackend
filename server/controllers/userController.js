@@ -14,7 +14,7 @@ exports.register=catchAsyncErrors(async(req,res,next)=>{
     
     const{name,email,password}=req.body;
 if(req.files)
-{console.log(true);
+{
     const file=req.files.photo;
     cloudinary.uploader.upload(file.tempFilePath,async(err,result)=>{
       const user=await User.create({
@@ -77,16 +77,35 @@ exports.login=catchAsyncErrors(async(req,res,next)=>{
 
 // })
 exports.updateUser=catchAsyncErrors(async(req,res,next)=>{
-console.log(req.body);
+    if(req.files)
+{
+    const file=req.files.photo;
+    cloudinary.uploader.upload(file.tempFilePath,async(err,result)=>{
+       
+        req.body.img=result.url;
+        console.log(req.body);
         const updatedUser=await User.findByIdAndUpdate(req.user.id,{
             $set:req.body
         },{new:true})
-        console.log(updatedUser);
         res.status(200).json({
             success:true,
             updatedUser
         })
+        
     })
+}
+else{
+
+        const updatedUser=await User.findByIdAndUpdate(req.user.id,{
+            $set:req.body
+        },{new:true})
+        res.status(200).json({
+            success:true,
+            updatedUser
+        })
+    }
+    })
+
 
 exports.getUser=catchAsyncErrors(async(req,res,next)=>{
     const user=await User.findById(req.user.id);

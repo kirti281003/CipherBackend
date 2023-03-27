@@ -8,13 +8,12 @@ import User from "./User";
 import About from "./About";
 import Web from "./Web";
 import Info from "./Info";
+import Map from "./Map";
 import Interests from "./Interests";
 
 
 function Profile()
 {
- 
-    
 const dispatch=useDispatch();
 const{user,isAuthenticated}=useSelector(state=>state.user)
 useEffect(()=>{
@@ -31,6 +30,8 @@ console.log(user.interests);
         <User name={user.name} email={user.email}/>
         <hr></hr>
         <About about={user.about}/>
+        <hr></hr>
+        <Map/>
         <hr></hr>
         <Web linkedin={user.linkedin} github={user.github} twitter={user.twitter} facebook={user.facebook} instagram={user.instagram}
         website={user.website}/>
