@@ -3,9 +3,9 @@ function Map()
 {
 var arr=[];
 for(var i=1;i<365;i++)
-{let x=Math.random();
+{
    
-    if(i%2==0)
+    if(i%5==0)
     {
         arr[i]=1;
     }

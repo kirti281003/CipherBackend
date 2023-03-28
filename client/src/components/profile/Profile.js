@@ -27,7 +27,7 @@ if(user)
 console.log(user.interests);
     return(
         <>
-        <User name={user.name} email={user.email}/>
+        <User name={user.name} email={user.email} img={user.img}/>
         <hr></hr>
         <About about={user.about}/>
         <hr></hr>

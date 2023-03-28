@@ -42,6 +42,7 @@
 }
 .modallogo{
     height:8rem;
+    
     display: inline-block;
 }
 .modalinput{
@@ -85,4 +86,96 @@
 }
 .interestupdate{
     height:35vh;
+}
+@media(max-width:1024px)
+{
+    .modalform{
+        width:40vw;
+        height:auto;
+        padding: 1rem;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .modalhead{
+        color:black;
+        margin-top: -1rem;
+    }
+    .modalfield{
+        margin-left: 5vw;
+        margin-bottom: 2rem;
+       
+    }
+    
+    .orangebtn{
+        background-color: #f3912e;
+     position: absolute;
+     right:1rem;
+     display: inline-block;
+        color:white;
+        border:none;
+        width:6rem;
+        padding: 0.3rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+    .whitebtn{
+        background-color: black;
+        color: white;
+        position: absolute;
+        right:8rem;
+        display: inline-block;
+        border:none;
+        width:6rem;
+        padding: 0.3rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    
+    }
+    .modallogo{
+        height:5rem;
+       
+        display: inline-block;
+    }
+    .modalinput{
+        border: none;
+        border-radius: 5px;
+        background-color:#e8eef8 ;
+        width:35vw;
+        margin-top: 0.5rem;
+        padding: 0.4rem;
+    }
+    .modallabel{
+        font-weight: 600vw;
+    }
+    
+    .interestselect{
+        width:80vw;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom:1rem;
+        height: auto;
+        padding: 0.5rem;
+    
+    }
+    .selected{
+        background-color: #f3912e;
+        border:none;
+        border-radius: 5px;
+        width:30vw;
+        margin-left: 1rem;
+        padding: 0.5rem;
+        margin-top: 1rem;
+    }
+    .notselected{
+        background-color: #e8eef8;
+        border:none;
+        border-radius: 5px;
+        width:30vw;
+        margin-left: 1rem;
+        padding: 0.5rem;
+        margin-top: 1rem;
+    }
+    .interestupdate{
+        height:35vh;
+    }
 }

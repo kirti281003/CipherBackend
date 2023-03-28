@@ -17,18 +17,16 @@ const customStyles = {
   };
 var array=["Web Developement","App Developement","Machine Learning","Data Science","Data Structures","Game Developement","Programming","Other"];
 
-var style={
-    "backgroundColor":"#e8eef8"
-}
+
 function Interests({interests})
 {if(interests)
     {
         var ans=[...interests];
     }
     
-    var style={
+    const [style,setStyle]=useState({
         "backgroundColor":"#e8eef8"
-    }
+    })
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
   
@@ -50,18 +48,17 @@ function select(item)
     {
         var index=ans.indexOf(item);
     ans.splice(index,1);
-    style={
-        "backgroundColor":"#e8eef8"
-    }
+    window.alert(item +" Removed");
+   
     console.log(ans);
   
     
     }
     else{
         ans.push(item);
-        style={
-            "backgroundColor":"#f3912e"
-        }
+      
+        window.alert(item +" Selected");
+     
         console.log(ans);
        
     }
@@ -95,21 +92,16 @@ dispatch(updateUserInterests(interests))
         interests &&
         array.map(item=>{
             if(ans.includes(item))
-            {  
-                style={
-            "backgroundColor":"#f3912e"
-        }
+            { 
                 return(
-                    <><button className="selected" onClick={()=>select(item)} style={style}>{item}</button></>
+                    <><button className="selected"  onClick={()=>select(item)} >{item}</button></>
                 )
             }
             else{
-                style={
-        "backgroundColor":"#e8eef8"
-    }
+              
                 return(
                     <>
-                    <button className="notselected" onClick={()=>select(item)} style={style}>{item}</button>
+                    <button className="notselected"  onClick={()=>select(item)} >{item}</button>
                     </>
                 )
             }

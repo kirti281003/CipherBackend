@@ -19,7 +19,7 @@ const customStyles = {
     },
   };
   
-function User({name,email})
+function User({name,email,img})
 {const dispatch=useDispatch();
     const{user}=useSelector(state=>state.user);
   
@@ -72,7 +72,7 @@ function User({name,email})
     return(
         <>
         <div className="userhead">
-        <img src={logo} className="logo" ></img>
+        <img src={img} className="logo" ></img>
      
             
         <button onClick={openProfileModal} className="editbtn"><img src={edit} style={{"height":20 }}/></button>

@@ -10,3 +10,14 @@ margin:0 -1rem 1rem 3rem
     padding:0.5rem;
     width:20vw;
 }
+@media(max-width:1024px)
+{
+    .linkinput{
+        border: none;
+        padding:0.5rem;
+        width:70vw;
+    }
+    .linksection{
+        margin:0 -1rem 1rem 1rem
+        }
+}

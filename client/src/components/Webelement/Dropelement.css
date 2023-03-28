@@ -15,3 +15,16 @@
     option:hover{
         background-color: #f3912e;
     }
+@media(max-width:1024px)
+{
+    .infoinput{
+        border: none;
+        padding:0.5rem;
+        width:70vw;
+        margin-top: 1rem;
+ 
+    }
+    .dropinfo{
+        margin:0 2rem 1rem 1rem
+        }
+}
