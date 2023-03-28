@@ -131,17 +131,17 @@ function User({name,email,img})
         <div className="modalfield">
         <label className="modallabel">Current Password</label>
         <br></br>
-          <input type="text" className="modalinput" onChange={(e)=>setCurrent(e.target.value)}/>
+          <input type="password" className="modalinput" onChange={(e)=>setCurrent(e.target.value)}/>
         </div>
        <div className="modalfield">   
        <label className="modallabel">New Password</label>
        <br></br>
-          <input type="text" className="modalinput" onChange={(e)=>setNew(e.target.value)}/>
+          <input type="password" className="modalinput" onChange={(e)=>setNew(e.target.value)}/>
           </div>
           <div className="modalfield">   
        <label className="modallabel">Confirm Password</label>
        <br></br>
-          <input type="text" className="modalinput" onChange={(e)=>setConfirm(e.target.value)}/>
+          <input type="password" className="modalinput" onChange={(e)=>setConfirm(e.target.value)}/>
           </div>
        
           <button type="submit" className="orangebtn" onClick={updatePassword}>Save</button>

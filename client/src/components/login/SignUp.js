@@ -41,7 +41,7 @@ function SignUp()
             <form action="/signup"  onSubmit={registersubmit}>
             <input type="text" className="loginInput" placeholder=" Name" onChange={(e)=>setName(e.target.value) }></input>
                 <input type="text" className="loginInput" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}></input>
-                <input type="text" className="loginInput" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}></input>
+                <input type="password" className="loginInput" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}></input>
                 <button type="submit" className="submitbutton">Create an account</button>
                 <div className="loginspan">Already have an account? <Link to="/" className="loginlink">SignIn </Link></div>
             </form>

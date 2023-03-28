@@ -39,10 +39,10 @@ function Login()
         <h3>Please provide your email and password to signin</h3>
 
         </div>
-            <form action="/login"  onSubmit={loginsubmit}>
+            <form action="/"  onSubmit={loginsubmit}>
             
                 <input type="text" className="loginInput" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}></input>
-                <input type="text" className="loginInput" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}></input>
+                <input type="password" className="loginInput" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}></input>
                 <button type="submit" className="submitbutton">SignIn</button>
                 <div className="loginspan">Don't have an account? <Link to="/signup" className="loginlink">Get Started</Link></div>
             </form>
