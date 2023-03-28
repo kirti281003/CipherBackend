@@ -31,13 +31,13 @@ npm
 Clone the project
 
 ```bash
-  git clone git@github.com:kirti281003/SideMoney.git
+  git clone git@github.com:kirti281003/CipherSchoolBackend.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd SideMoney
+  cd CipherSchoolBackend
 ```
 
 Install dependencies
