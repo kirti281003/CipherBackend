@@ -48,6 +48,9 @@ const userSchema=new mongoose.Schema({
     },
     interests:{
         type:[String]
+    },
+    followers:{
+        type:[String]
     }
 })
 userSchema.pre("save",async function(next){

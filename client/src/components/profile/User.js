@@ -73,7 +73,7 @@ function User({name,email,img})
         <>
         <div className="userhead">
         <img src={img} className="logo" ></img>
-     
+       
             
         <button onClick={openProfileModal} className="editbtn"><img src={edit} style={{"height":20 }}/></button>
         {/* Modal */}
@@ -108,6 +108,13 @@ function User({name,email,img})
         </form>
       </Modal>
       {/* Modal End */}
+      <div className="nameinfo">
+            <span>Hello</span>
+            <h2>{name}</h2>
+            <span>{email}</span>
+            <span><Link to="/followers" className="followlink">10 Followers</Link></span>
+            
+            </div>
       <button onClick={openModal} className="btn">Change Password</button>
         {/* Modal */}
         <Modal
@@ -142,13 +149,7 @@ function User({name,email,img})
           
         </form>
       </Modal>
-      <div>
-            <span>Hello</span>
-            <h2>{name}</h2>
-            <span>{email}</span>
-            <span><Link to="/followers" className="followlink">10 Followers</Link></span>
-            
-            </div>
+  
       </div>
   
        

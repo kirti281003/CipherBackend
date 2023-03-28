@@ -9,6 +9,7 @@
   .squares { grid-area: squares; }
   
   .graph {
+    
     display: inline-grid;
     grid-template-areas: "empty months"
                          "days squares";
